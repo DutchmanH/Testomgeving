@@ -3,13 +3,14 @@
   <display-name>OmgevingTest</display-name>
   
   <servlet>
-  	<servlet-name>abc</servlet-name>
-  	<servlet-class>Testing</servlet-class>
+    <servlet-name>testomgeving</servlet-name>
+    <servlet-class>DemoServlet</servlet-class>
   </servlet>
   
+
   <servlet-mapping>
-  	<servlet-name>abc</servlet-name>
-  	<url-pattern>/welcome</url-pattern>
+    <servlet-name>testomgeving</servlet-name>
+    <url-pattern>/api</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
