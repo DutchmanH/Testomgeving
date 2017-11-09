@@ -46,9 +46,9 @@ public class DemoServlet extends HttpServlet {
 		if(key.trim().equals(api_Key)) {
 			//Ophalen uit DB: rechten van de Applicatie
 			List listRights = new ArrayList();
-			listRights.add("messages:up:r");
-			listRights.add("messages:down:w");
-			listRights.add("devices");
+			listRights.add("\"messages:up:r\"");
+			listRights.add("\"messages:down:w\"");
+			listRights.add("\"devices\"");
 			//Rechten printen
 			out.println(listRights);
 			//Status 200 OK
@@ -57,28 +57,30 @@ public class DemoServlet extends HttpServlet {
 			//Als de key net klopt geef dan een 401
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
 		}
-		
-		
-		out.println("<br><h1>--------------[Testvenster]---------------<h1><br>");
-		out.println("<h2>Megestuurde Gegevens</h2>");
-		out.println("<h3>In de URL</h3>");
-		out.println("Username: <b>");
-		out.println(request.getParameter("username"));
-		out.println("<br></b>password:<b>");
-		out.println(request.getParameter("password"));
-		out.println("</b><br>");
+		String testvenster = "uit"; //aan of uit
+		if(testvenster.equals("aan")){
+			out.println("<br><h1>--------------[Testvenster]---------------<h1><br>");
+			out.println("<h2>Megestuurde Gegevens</h2>");
+			out.println("<h3>In de URL</h3>");
+			out.println("Username: <b>");
+			out.println(request.getParameter("username"));
+			out.println("<br></b>password:<b>");
+			out.println(request.getParameter("password"));
+			out.println("</b><br>");
 
-		out.println("<h3>In de Header</h3>");
-		out.println("Username: <b>");
-		out.println(user);
-		out.println("<br></b>password:<b>");
-		out.println(pass);
-		out.println("<br><h4></b>Authorization:<b>");
-		out.println(auth);
-		out.println("</b><br>key:<br>");
-		out.println(key);
-		out.println("<br><br>");
-		out.println(getHeadersInfo(request));
+			out.println("<h3>In de Header</h3>");
+			out.println("Username: <b>");
+			out.println(user);
+			out.println("<br></b>password:<b>");
+			out.println(pass);
+			out.println("<br><h4></b>Authorization:<b>");
+			out.println(auth);
+			out.println("</b><br>key:<br>");
+			out.println(key);
+			out.println("<br><br>");
+			out.println(getHeadersInfo(request));
+		};
+		
 		
 	
 	
